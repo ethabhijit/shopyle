@@ -1,0 +1,33 @@
+body {
+  background-color: #212529 !important;
+  font-family: "Roboto", sans-serif;
+}
+
+.left-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.bg-light-dark {
+  background-color: #212529 !important;
+}
+
+.card {
+  background-color: #212529;
+}
+
+.fs-7 {
+  font-size: 12px !important;
+}
+
+.text-white-100 {
+  color: #919191 !important;
+}
+.text-white-200 {
+  color: #c3c3c3 !important;
+}
+
+.profile-icon {
+  font-size: 4rem !important;
+  top: -4px !important;
+}
