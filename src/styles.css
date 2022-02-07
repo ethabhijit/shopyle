@@ -31,3 +31,7 @@ body {
   font-size: 4rem !important;
   top: -4px !important;
 }
+
+.height-100 {
+  height: 100px;
+}

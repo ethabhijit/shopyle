@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import swal from "sweetalert";
 
+import { Spinner } from "react-bootstrap";
 import Base from "./Base";
 import Card from "./Card";
 
@@ -8,12 +9,16 @@ import { getProducts } from "./helper/coreapicalls";
 
 function Home() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const loadAllProducts = () => {
+    setLoading(true);
     getProducts().then((data) => {
       if (data.error) {
+        setLoading(false);
         swal("Oops", data.error, "error");
       } else {
+        setLoading(false);
         setProducts(data);
       }
     });
@@ -30,16 +35,23 @@ function Home() {
           Explore the tshirts
         </p>
         <div className="row">
-          {products.map((product, index) => {
-            return (
-              <div
-                key={index}
-                className="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-4"
-              >
-                <Card product={product} />
-              </div>
-            );
-          })}
+          {!loading &&
+            Array.isArray(products) &&
+            products.map((product, index) => {
+              return (
+                <div
+                  key={index}
+                  className="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+                >
+                  <Card product={product} />
+                </div>
+              );
+            })}
+          {loading && (
+            <div className="col-md-12 height-100 d-flex justify-content-center align-items-center">
+              <Spinner animation="border" variant="secondary" />
+            </div>
+          )}
         </div>
 
         <hr class="dropdown-divider my-5" />
