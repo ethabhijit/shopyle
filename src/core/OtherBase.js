@@ -10,7 +10,7 @@ const OtherBase = ({
 		<>
 			<Menu />
 			<div
-				className="container p-0 text-white"
+				className="container text-white"
 				style={{ marginTop: "56px" }}
 			>
 				<div className={className}>{children}</div>

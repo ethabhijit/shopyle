@@ -60,53 +60,49 @@ function ManageProducts() {
         </Link>
       </h2>
 
-      <div className="row p-3">
-        <div className="col-12">
-          <table className="table table-dark table-striped table-hover shadow">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Sold</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products &&
-                products.map((product, index) => {
-                  return (
-                    <tr>
-                      <th scope="row">{index}</th>
-                      <td>{product.name}</td>
-                      <td className="text-secondary fw-bold">
-                        {product.price}
-                      </td>
-                      <td className="text-primary fw-bold">{product.sold}</td>
-                      <td className="text-info fw-bold">{product.stock}</td>
-                      <td>
-                        <Link
-                          className="btn btn-sm btn-outline-success me-2 fs-7"
-                          to={`/admin/product/update/${product._id}`}
-                        >
-                          <i className="fas fa-pen me-2 fs-7"></i>Update
-                        </Link>
-                        <button
-                          onClick={() => {
-                            deleteThisProduct(product._id);
-                          }}
-                          className="btn btn-sm btn-danger fs-7"
-                        >
-                          <i className="fas fa-trash me-2 fs-7"></i>Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
+      <div className="table-responsive-sm">
+        <table className="table table-dark table-striped table-hover shadow">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Sold</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products &&
+              products.map((product, index) => {
+                return (
+                  <tr>
+                    <th scope="row">{index}</th>
+                    <td>{product.name}</td>
+                    <td className="text-secondary fw-bold">{product.price}</td>
+                    <td className="text-primary fw-bold">{product.sold}</td>
+                    <td className="text-info fw-bold">{product.stock}</td>
+                    <td>
+                      <Link
+                        className="btn btn-sm btn-outline-success me-2 fs-7 btn-responsive"
+                        to={`/admin/product/update/${product._id}`}
+                      >
+                        <i className="fas fa-pen me-2 fs-7 icon-responsive"></i>Update
+                      </Link>
+                      <button
+                        onClick={() => {
+                          deleteThisProduct(product._id);
+                        }}
+                        className="btn btn-sm btn-danger fs-7 btn-responsive"
+                      >
+                        <i className="fas fa-trash me-2 fs-7 icon-responsive"></i>Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
       </div>
     </OtherBase>
   );

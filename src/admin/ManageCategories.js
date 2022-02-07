@@ -50,43 +50,41 @@ const ManageCategories = () => {
         </Link>
       </h2>
 
-      <div className="row p-3">
-        <div className="col-12">
-          <table className="table table-dark table-striped table-hover shadow">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {categories &&
-                categories.map((category, index) => {
-                  return (
-                    <tr>
-                      <th scope="row">{index}</th>
-                      <td>{category.name}</td>
-                      <td>
-                        <Link
-                          className="btn btn-sm btn-outline-success me-2 fs-7"
-                          to={`/admin/product/update/productId`}
-                        >
-                          <i className="fas fa-pen me-2 fs-7"></i>Update
-                        </Link>
-                        <button
-                          onClick={() => {}}
-                          className="btn btn-sm btn-danger fs-7"
-                        >
-                          <i className="fas fa-trash me-2 fs-7"></i>Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
+      <div className="table-responsive-sm">
+        <table className="table table-dark table-striped table-hover shadow">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {categories &&
+              categories.map((category, index) => {
+                return (
+                  <tr>
+                    <th scope="row">{index}</th>
+                    <td>{category.name}</td>
+                    <td>
+                      <Link
+                        className="btn btn-sm btn-outline-success me-2 fs-7"
+                        to={`/admin/product/update/productId`}
+                      >
+                        <i className="fas fa-pen me-2 fs-7"></i>Update
+                      </Link>
+                      <button
+                        onClick={() => {}}
+                        className="btn btn-sm btn-danger fs-7"
+                      >
+                        <i className="fas fa-trash me-2 fs-7"></i>Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
       </div>
     </OtherBase>
   );
